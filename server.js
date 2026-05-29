@@ -9,24 +9,24 @@ app.use(express.static('public'))
 
 // ── REST API ──────────────────────────────────────────────────────────────────
 
-app.get('/api/todos', (req, res) => {
-  res.json(getAllTodos())
+app.get('/api/todos', async (req, res) => {
+  res.json(await getAllTodos())
 })
 
-app.post('/api/todos', (req, res) => {
+app.post('/api/todos', async (req, res) => {
   const { text } = req.body
   if (!text?.trim()) return res.status(400).json({ error: 'text is required' })
-  res.status(201).json(createTodo(text))
+  res.status(201).json(await createTodo(text))
 })
 
-app.patch('/api/todos/:id/toggle', (req, res) => {
-  const todo = toggleTodo(parseInt(req.params.id, 10))
+app.patch('/api/todos/:id/toggle', async (req, res) => {
+  const todo = await toggleTodo(parseInt(req.params.id, 10))
   if (!todo) return res.status(404).json({ error: 'not found' })
   res.json(todo)
 })
 
-app.delete('/api/todos/:id', (req, res) => {
-  deleteTodo(parseInt(req.params.id, 10))
+app.delete('/api/todos/:id', async (req, res) => {
+  await deleteTodo(parseInt(req.params.id, 10))
   res.status(204).end()
 })
 
