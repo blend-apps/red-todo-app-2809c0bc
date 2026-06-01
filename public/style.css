@@ -1,26 +1,25 @@
 /*
  * ============================================================
- *  RED TODO APP — DEFAULT THEME
- *  ⚠️  Everything in this file is fair game to customize!
+ *  TODO APP — THEME
  *  Change the CSS variables below to retheme the whole app.
  * ============================================================
  */
 
 :root {
   /* ── Primary palette ── */
-  --color-bg:        #ff6b35;   /* 🎨 CHANGE ME: page background */
-  --color-surface:   #fffbe6;   /* 🎨 CHANGE ME: card / form background */
-  --color-primary:   #d62828;   /* 🎨 CHANGE ME: header, buttons */
-  --color-accent:    #ffe66d;   /* 🎨 CHANGE ME: highlights */
-  --color-text:      #1a1a2e;   /* 🎨 CHANGE ME: body text */
-  --color-done-text: #888;      /* 🎨 CHANGE ME: completed item text */
+  --color-bg:        #f0f4f8;   /* page background */
+  --color-surface:   #ffffff;   /* card / form background */
+  --color-primary:   #4f46e5;   /* header, buttons */
+  --color-accent:    #818cf8;   /* highlights */
+  --color-text:      #1e293b;   /* body text */
+  --color-done-text: #94a3b8;   /* completed item text */
 
   /* ── Typography ── */
-  --font-family:     'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', cursive; /* 🎨 CHANGE ME */
-  --font-size-base:  18px;                                                    /* 🎨 CHANGE ME */
+  --font-family:     'Inter', system-ui, sans-serif;
+  --font-size-base:  18px;
 
   /* ── Layout ── */
-  --border-radius:   4px;
+  --border-radius:   8px;
   --max-width:       640px;
 }
 
@@ -39,35 +38,20 @@ body {
   padding-bottom: 3rem;
 }
 
-/* ── CHANGE ME banner ── */
-.change-me-banner {
-  background: var(--color-primary);
-  color: var(--color-accent);
-  text-align: center;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-  border-bottom: 3px solid #000;
-}
-
-.change-me-banner a {
-  color: #fff;
-  text-decoration: underline;
-}
-
 /* ── Header ── */
 header {
   background: var(--color-primary);
   color: #fff;
   padding: 2rem 1rem 1.5rem;
   text-align: center;
-  border-bottom: 4px solid #000;
+  border-bottom: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 
 header h1 {
   font-size: 2.8rem;
-  text-shadow: 3px 3px 0 #000;
+  font-weight: 700;
+  text-shadow: none;
   line-height: 1.1;
 }
 
@@ -96,35 +80,35 @@ main {
   padding: 0.7rem 1rem;
   font-size: 1rem;
   font-family: var(--font-family);
-  border: 3px solid #000;
+  border: 1.5px solid #cbd5e1;
   border-radius: var(--border-radius);
   background: var(--color-surface);
   color: var(--color-text);
   outline: none;
+  transition: border-color 0.15s;
 }
 
 .add-form input:focus {
   border-color: var(--color-primary);
-  box-shadow: 3px 3px 0 #000;
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
 }
 
 .add-form button {
   padding: 0.7rem 1.4rem;
   font-size: 1rem;
   font-family: var(--font-family);
-  font-weight: bold;
+  font-weight: 600;
   background: var(--color-primary);
   color: #fff;
-  border: 3px solid #000;
+  border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 3px 3px 0 #000;
-  transition: transform 0.05s, box-shadow 0.05s;
+  transition: filter 0.15s;
 }
 
-.add-form button:hover  { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 #000; }
-.add-form button:active { transform: translate(2px,2px);   box-shadow: 1px 1px 0 #000; }
+.add-form button:hover  { filter: brightness(1.1); }
+.add-form button:active { filter: brightness(0.95); }
 
 /* ── Stats bar ── */
 .stats {
@@ -145,11 +129,11 @@ main {
   align-items: center;
   gap: 0.75rem;
   background: var(--color-surface);
-  border: 3px solid #000;
+  border: 1px solid #e2e8f0;
   border-radius: var(--border-radius);
   padding: 0.75rem 1rem;
   margin-bottom: 0.5rem;
-  box-shadow: 3px 3px 0 #000;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   transition: opacity 0.15s;
 }
 
@@ -188,11 +172,12 @@ main {
   font-size: 1.1rem;
   opacity: 0.4;
   padding: 0.1rem 0.3rem;
-  border-radius: 2px;
+  border-radius: 4px;
   line-height: 1;
+  transition: opacity 0.15s, background 0.15s;
 }
 
-.todo-delete:hover { opacity: 1; background: #fdd; }
+.todo-delete:hover { opacity: 1; background: #fee2e2; }
 
 /* ── Empty state ── */
 .empty-state {
